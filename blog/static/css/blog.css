@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #ff9400;
+    background-color: #790000;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -15,7 +15,11 @@
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Lobster', 'Nanum Gothic';
+}
+
+a {
+    color: rgb(110, 77, 77);
 }
 
 .date {
