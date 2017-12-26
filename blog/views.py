@@ -6,8 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def post_list(request):
-    posts = Post.objects.filter(
-        created_date__lte=timezone.now()).order_by('-created_date')
+    posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
@@ -30,7 +29,7 @@ def post_new(request):
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
-
+@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":

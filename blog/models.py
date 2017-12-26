@@ -13,8 +13,6 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        #strTime = str(self.created_date)
-        # return strTime
         return self.created_date.strftime("%Y / %m / %d / %I:%M %p")
 
 class Comment(models.Model):
