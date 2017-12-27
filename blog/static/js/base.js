@@ -19,12 +19,11 @@ var cssBl = {
 }
 
 window.onload = function () {
+    cssBl.boolean();
+    cssBl.css();
     var btn = document.getElementById('cssBtn');
     btn.onclick = function () {
         localStorage['theme'] === 'false' ? localStorage['theme'] = 'true' : localStorage['theme'] = 'false';
         cssBl.css();
     }
 }
-
-cssBl.boolean();
-cssBl.css();

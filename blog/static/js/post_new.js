@@ -13,6 +13,9 @@ var modified = {
         if (date.getHours() > 12) { time = (date.getHours() - 12) }
         else { time = date.getHours() }
         title.innerHTML = date.getFullYear() + '년 ' + date.getMonth() + '월 ' + date.getDay() + '일 ' + date.getDate() + '일 | ' + time + '시 ' + date.getMinutes() + '분 ' + date.getSeconds() + '초';
+    },
+    autoFocus: function(){
+        var textarea = document.querySelector('#id_text1').setAttribute('autofocus','autofocus');
     }
 }
 
@@ -28,8 +31,8 @@ var autoSave = {
         var now = date.getFullYear() + '' + date.getMonth() + '' + date.getDate();
         var editer = autoSave.getEditer();
         for (i; i < len; i++) {
-                localStorage.setItem(now + '/' + i, editer[i].value)
-            }
+            localStorage.setItem(now + '/' + i, editer[i].value)
+        }
     },
     restore: function () {
         var i = 0;
@@ -54,9 +57,11 @@ var autoSave = {
     }
 }
 
-modified.rename();
-modified.titleDate();
-autoSave.restore();
-autoSave.delete();
-setInterval(function () { modified.titleDate() }, 1000);
-setInterval(function () { autoSave.save() }, 5000)
+
+    modified.rename();
+    modified.titleDate();
+    modified.autoFocus();
+    autoSave.restore();
+    autoSave.delete();
+    setInterval(function () { modified.titleDate() }, 1000);
+    setInterval(function () { autoSave.save() }, 5000)
