@@ -53,12 +53,9 @@ var autoSave = {
     }
 }
 
-
-if (window.location.pathname === '/post/new/') {
     modified.rename();
     modified.titleDate();
     autoSave.restore();
     autoSave.delete();
     setInterval(function () { modified.titleDate() }, 1000);
     setInterval(function () { autoSave.save() }, 5000)
-}

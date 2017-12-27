@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
     <h1></h1><span id="autosave">저장중...</span>
@@ -7,3 +8,6 @@
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}
+{% block script %}
+<script src="{% static 'js/post_new.js' %}"></script>
+{% endblock script %}
