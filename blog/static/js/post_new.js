@@ -26,9 +26,10 @@ var autoSave = {
         var len = autoSave.getEditer().length;
         var date = new Date();
         var now = date.getFullYear() + '' + date.getMonth() + '' + date.getDate();
+        var editer = autoSave.getEditer();
         for (i; i < len; i++) {
-            localStorage.setItem(now + '/' + i, autoSave.getEditer()[i].value)
-        }
+                localStorage.setItem(now + '/' + i, editer[i].value)
+            }
     },
     restore: function () {
         var i = 0;
@@ -38,7 +39,7 @@ var autoSave = {
         var editer = autoSave.getEditer();
         for (i; i < len; i++) {
             var localKey = localStorage.key(i);
-            if (localKey && now + '/' + i) { editer[i].value = localStorage.getItem(localKey) };
+            if (localKey === now + '/' + i) { editer[i].value = localStorage.getItem(localKey) };
         }
     },
     delete: function () {
@@ -48,14 +49,14 @@ var autoSave = {
         var now = date.getFullYear() + '' + date.getMonth() + '' + date.getDate();
         for (i; i < len; i++) {
             var localKey = localStorage.key(i);
-            if (localKey < now + '/' + i) { localStorage.removeItem(localKey); };
+            if (localKey !== 'theme' && localKey < now + '/' + i) { localStorage.removeItem(localKey); };
         }
     }
 }
 
-    modified.rename();
-    modified.titleDate();
-    autoSave.restore();
-    autoSave.delete();
-    setInterval(function () { modified.titleDate() }, 1000);
-    setInterval(function () { autoSave.save() }, 5000)
+modified.rename();
+modified.titleDate();
+autoSave.restore();
+autoSave.delete();
+setInterval(function () { modified.titleDate() }, 1000);
+setInterval(function () { autoSave.save() }, 5000)
