@@ -15,6 +15,11 @@ var cssBl = {
             link.href = '/static/css/blog.css';
         } else { link.href = '/static/css/blog.1.css'; }
         head.appendChild(link);
+    },
+    cssDel: function(){
+        var head = document.getElementsByTagName('head')[0];
+        var css = document.getElementById('cssId')
+        head.removeChild(head.lastChild)
     }
 }
 
@@ -24,6 +29,7 @@ window.onload = function () {
     var btn = document.getElementById('cssBtn');
     btn.onclick = function () {
         localStorage['theme'] === 'false' ? localStorage['theme'] = 'true' : localStorage['theme'] = 'false';
+        cssBl.cssDel();
         cssBl.css();
     }
 }
