@@ -9,13 +9,14 @@ var modified = {
     titleDate: function () {
         var title = document.getElementsByTagName('h1')[1];
         var date = new Date();
-        var time;
+        var time, day = date.getDate();
+        if (day.toString().length < 2) { day = '0' + day; }
         if (date.getHours() > 12) { time = (date.getHours() - 12) }
         else { time = date.getHours() }
-        title.innerHTML = date.getFullYear() + '년 ' + date.getMonth() + '월 ' + date.getDay() + '일 ' + date.getDate() + '일 | ' + time + '시 ' + date.getMinutes() + '분 ' + date.getSeconds() + '초';
+        title.innerHTML = date.getFullYear() + '년 ' + date.getMonth() + 1 + '월 ' + day + '일 | ' + time + '시 ' + date.getMinutes() + '분 ' + date.getSeconds() + '초';
     },
-    autoFocus: function(){
-        var textarea = document.querySelector('#id_text1').setAttribute('autofocus','autofocus');
+    autoFocus: function () {
+        var textarea = document.querySelector('#id_text1').setAttribute('autofocus', 'autofocus');
     }
 }
 
@@ -28,7 +29,7 @@ var autoSave = {
         var i = 0;
         var len = autoSave.getEditer().length;
         var date = new Date();
-        var now = date.getFullYear() + '' + date.getMonth() + '' + date.getDate();
+        var now = date.getFullYear() + '' + date.getMonth() + 1 + '' + date.getDate();
         var editer = autoSave.getEditer();
         for (i; i < len; i++) {
             localStorage.setItem(now + '/' + i, editer[i].value)
@@ -58,10 +59,10 @@ var autoSave = {
 }
 
 
-    modified.rename();
-    modified.titleDate();
-    modified.autoFocus();
-    autoSave.restore();
-    autoSave.delete();
-    setInterval(function () { modified.titleDate() }, 1000);
-    setInterval(function () { autoSave.save() }, 5000)
+modified.rename();
+modified.titleDate();
+modified.autoFocus();
+autoSave.restore();
+autoSave.delete();
+setInterval(function () { modified.titleDate() }, 1000);
+setInterval(function () { autoSave.save() }, 5000)
