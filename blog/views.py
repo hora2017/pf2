@@ -27,6 +27,7 @@ def post_new(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
+            form.save_m2m() # 폼에서 작성시 태그 저장
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
