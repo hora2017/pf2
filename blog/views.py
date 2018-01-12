@@ -9,6 +9,9 @@ def post_list(request):
     posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def tag_post_list(request):
+    posts = Post.objects.filter(tags__name__in=["delicious"]).order_by('-created_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
