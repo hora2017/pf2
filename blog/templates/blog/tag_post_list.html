@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-{% for post in posts %}
+{% for post in tposts %}
 <div>
     <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.created_date }}</a></h1>
     <h3>1. 오늘 가장 안 좋았던 일</h3>
