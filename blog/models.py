@@ -9,7 +9,7 @@ class Post(models.Model):
     text2 = models.TextField()
     text3 = models.TextField()
     created_date = models.DateTimeField(auto_now=True)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     def publish(self):
         self.save()

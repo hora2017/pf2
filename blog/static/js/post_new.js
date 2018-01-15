@@ -1,10 +1,11 @@
 var modified = {
     rename: function () {
         var label = document.getElementsByTagName('label');
-        var len = label.length;
         label[0].innerHTML = '1. 오늘 가장 안 좋았던 일'
         label[1].innerHTML = '2. 오늘 가장 좋았던 일'
         label[2].innerHTML = '3. 내일 할 일'
+        label[3].innerHTML = '태그'
+        label[3].nextElementSibling.nextElementSibling.innerText = '태그는 띄어쓰기로 구분합니다';
     },
     titleDate: function () {
         var title = document.getElementsByTagName('h1')[1];
