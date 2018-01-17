@@ -30,8 +30,8 @@
 
     </div>
     {% endfor %}
+    {% endautoescape %}
     {% empty %}
     <h3>새로운 글을 작성해보세요!</h3>
-{% endautoescape %}
-{% endfor %}
+    {% endfor %}
 {% endblock %}
