@@ -65,6 +65,49 @@ a {
 body {
     background-color: #444;
 }
-textarea{
-    background-color: #666;
+form p {
+    display: none;
+}
+.rich{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align:center;
+}
+.rich li {
+    display: inline-block;
+    width: 3em;
+    height: 2.5em;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    color: #444;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
+}
+.rich li:active{
+    background-color: #444;
+    color: #fff;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
+.textDiv{
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin: 1em 0;
+    transition: all 0.2s;
+    transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
+}
+.textDiv:focus{
+    background: #ffffff;
+    color: #111;
+    font-size: 1.3em;
+    transition: all 0.2s;
+    transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
 }
