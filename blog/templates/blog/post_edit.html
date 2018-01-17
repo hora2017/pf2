@@ -3,8 +3,12 @@
 
 {% block content %}
     <h1></h1><span id="autosave">저장중...</span>
+    <button id="bold" onclick="document.execCommand('bold', false, true)">bold</button>
     <form method="POST" class="post-form">{% csrf_token %}
+        <div id="demo" contentEditable="true">aaaa</div>
+        {% autoescape off %}
         {{ form.as_p }}
+        {% endautoescape %}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}

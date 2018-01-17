@@ -2,6 +2,7 @@
 
 
 {% block content %}
+{% autoescape off %}
 <div>
     <h1>{{ post.created_date }}</h1>
     <h3>1. 오늘 가장 안 좋았던 일</h3>
@@ -27,6 +28,7 @@
         <strong>{{ comment.author }}</strong>
         <p>{{ comment.text|linebreaks }}</p>
     </div>
+{% endautoescape %}
 {% endfor %}
 {% endblock %}
 

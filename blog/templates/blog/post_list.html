@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 {% for post in posts %}
+{% autoescape off %}
 <div>
     <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.created_date }}</a></h1>
     <h3>1. 오늘 가장 안 좋았던 일</h3>
@@ -29,8 +30,8 @@
 
     </div>
     {% endfor %}
-    
     {% empty %}
     <h3>새로운 글을 작성해보세요!</h3>
+{% endautoescape %}
 {% endfor %}
 {% endblock %}
