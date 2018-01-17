@@ -2,14 +2,30 @@
 {% load staticfiles %}
 
 {% block content %}
-    <h1></h1><span id="autosave">저장중...</span>
-    <button id="bold" onclick="document.execCommand('bold', false, true)">bold</button>
+<h1></h1>
+<div>
+    <ul class="rich">
+        <li><b>B</b></li>
+        <li><i>I</i></li>
+        <li>1.</li>
+        <li>·</li>
+        <li>big</li>
+        <li>small</li>
+        <li><u>U</u></li>
+        <li><strike>ST</strike></li>
+    </ul>
+</div>
+<div>
+    <div class="textDiv" data-text="1. 오늘 하루 좋았던 것"></div>
+    <div class="textDiv" data-text="2. 오늘 하루 안 좋았던 것"></div>
+    <div class="textDiv" data-text="3. 내일 할 것"></div>
+    <div class="textDiv" data-text="태그는 띄어쓰기로 구분합니다"></div>
+</div>
     <form method="POST" class="post-form">{% csrf_token %}
-        <div id="demo" contentEditable="true">aaaa</div>
         {% autoescape off %}
         {{ form.as_p }}
         {% endautoescape %}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save btn btn-default" onclick="autoSave.publish()">Save</button>
     </form>
 {% endblock %}
 {% block script %}

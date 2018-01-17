@@ -1,12 +1,4 @@
 var modified = {
-    rename: function () {
-        var label = document.getElementsByTagName('label');
-        label[0].innerHTML = '1. 오늘 가장 안 좋았던 일'
-        label[1].innerHTML = '2. 오늘 가장 좋았던 일'
-        label[2].innerHTML = '3. 내일 할 일'
-        label[3].innerHTML = '태그'
-        label[3].nextElementSibling.nextElementSibling.innerText = '태그는 띄어쓰기로 구분합니다';
-    },
     titleDate: function () {
         var title = document.getElementsByTagName('h1')[1];
         var date = new Date();
@@ -18,13 +10,32 @@ var modified = {
     },
     autoFocus: function () {
         var textarea = document.querySelector('#id_text1').setAttribute('autofocus', 'autofocus');
+    },
+    areaToDiv: function () {
+        var textarea = document.getElementsByTagName('textarea');
+        var tags = document.getElementsByName('tags')[0];
+        var divs = document.querySelectorAll('.textDiv');
+        var list = []; len = textarea.length
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].setAttribute('contentEditable', 'true')
+        }
+        for (var i = 0; i < len; i++) { list.push(textarea[i]) }
+        list.push(tags);
+        for (var i = 0; i < list.length; i++) {
+            list[i].value = divs[i].innerHTML
+        }
     }
 }
 
 
 var autoSave = {
     getEditer: function () {
-        return document.getElementsByTagName('textarea');
+        var textarea = document.getElementsByTagName('textarea');
+        var tags = document.getElementsByName('tags')[0];
+        var i = 0; list = []; len = textarea.length
+        for (i; i < len; i++) { list.push(textarea[i]) }
+        list.push(tags);
+        return list
     },
     save: function () {
         var i = 0;
@@ -46,6 +57,16 @@ var autoSave = {
             var localKey = localStorage.key(i);
             if (localKey === now + '/' + i) { editer[i].value = localStorage.getItem(localKey) };
         }
+
+        var textarea = document.getElementsByTagName('textarea');
+        var tags = document.getElementsByName('tags')[0];
+        var divs = document.querySelectorAll('.textDiv');
+        var list = []; len = textarea.length
+        for (var i = 0; i < len; i++) { list.push(textarea[i]) }
+        list.push(tags);
+        for (var i = 0; i < list.length; i++) {
+            divs[i].innerHTML = list[i].value
+        }
     },
     delete: function () {
         var i = 0;
@@ -56,14 +77,23 @@ var autoSave = {
             var localKey = localStorage.key(i);
             if (localKey !== 'theme' && localKey < now + '/' + i) { localStorage.removeItem(localKey); };
         }
+    },
+    publish: function(){
+        var i = 0;
+        var len = autoSave.getEditer().length;
+        var date = new Date();
+        var now = date.getFullYear() + '' + date.getMonth() + 1 + '' + date.getDate();
+        for (i; i < len; i++) {
+            var localKey = localStorage.key(i);
+            if (localKey !== 'theme' && localKey <= now + '/' + i) { localStorage.removeItem(localKey); };
+        }
     }
 }
 
-
-modified.rename();
 modified.titleDate();
 modified.autoFocus();
 autoSave.restore();
 autoSave.delete();
 setInterval(function () { modified.titleDate() }, 1000);
-setInterval(function () { autoSave.save() }, 5000)
+setInterval(function () { autoSave.save() }, 2000)
+setInterval(function () { modified.areaToDiv() }, 0)
