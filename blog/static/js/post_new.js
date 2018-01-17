@@ -40,7 +40,7 @@ var autoSave = {
         var i = 0;
         var len = autoSave.getEditer().length;
         var date = new Date();
-        var now = date.getFullYear() + '' + date.getMonth() + '' + date.getDate();
+        var now = date.getFullYear() + '' + date.getMonth() + 1 + '' + date.getDate();
         var editer = autoSave.getEditer();
         for (i; i < len; i++) {
             var localKey = localStorage.key(i);
@@ -51,7 +51,7 @@ var autoSave = {
         var i = 0;
         var len = autoSave.getEditer().length;
         var date = new Date();
-        var now = date.getFullYear() + '' + date.getMonth() + '' + date.getDate();
+        var now = date.getFullYear() + '' + date.getMonth() + 1 + '' + date.getDate();
         for (i; i < len; i++) {
             var localKey = localStorage.key(i);
             if (localKey !== 'theme' && localKey < now + '/' + i) { localStorage.removeItem(localKey); };
