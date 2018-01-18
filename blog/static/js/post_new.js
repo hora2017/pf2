@@ -16,9 +16,6 @@ var modified = {
         var tags = document.getElementsByName('tags')[0];
         var divs = document.querySelectorAll('.textDiv');
         var list = []; len = textarea.length
-        for (var i = 0; i < divs.length; i++) {
-            divs[i].setAttribute('contentEditable', 'true')
-        }
         for (var i = 0; i < len; i++) { list.push(textarea[i]) }
         for (var i = 0; i < list.length; i++) {
             list[i].value = divs[i].innerHTML
