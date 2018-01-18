@@ -23,3 +23,9 @@ https://webisfree.com/2017-10-12/[%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%
 css로 div에 placeholder 설정
 
 https://stackoverflow.com/questions/20300138/is-it-possible-to-add-placeholder-in-div-tag
+
+---
+
+자바스크립트 정규식으로 글에서 바로 태그 입력
+
+http://blog.naver.com/PostView.nhn?blogId=javaking75&logNo=220820365895&categoryNo=22&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
