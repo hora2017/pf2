@@ -18,7 +18,8 @@ var modified = {
         var list = []; len = textarea.length
         for (var i = 0; i < len; i++) { list.push(textarea[i]) }
         for (var i = 0; i < list.length; i++) {
-            list[i].value = divs[i].innerHTML
+            if (divs[i].innerHTML !== "<br>") { list[i].value = divs[i].innerHTML }
+            else { divs[i].innerHTML = "" } // divs의 innerHTML <br> 제거
         }
         tags.value = modified.divToTag();
     },
@@ -94,6 +95,57 @@ var autoSave = {
         for (var i = 0; i < len; i++) {
             var localKey = localStorage.key(i);
             if (localKey !== 'theme') { localStorage.removeItem(localKey); };
+        }
+    }
+}
+
+function rich(value) {
+    var selected = window.getSelection().getRangeAt(0);
+    if (selected.toString() !== "" && selected.toString() !== " ") {
+        var node = window.getSelection();
+        var parentStyle = node.baseNode.parentNode.style
+        if (node.baseNode.parentNode !== 'span') { // 해당 Selection에 처음으로 스타일 적용할때
+            var style = document.createElement('span');
+            switch (value) {
+                case 'bold':
+                    style.style.cssText = "font-weight:bold";
+                    break;
+                case 'italic':
+                    style.style.cssText = "font-style:italic";
+                    break;
+                case '1.4em':
+                    style.style.cssText = "font-size:1.4em";
+                    break;
+                case '0.8em':
+                    style.style.cssText = "font-size:0.8em";
+                    break;
+            }
+            // 셀렉션의 글자를 찾아 노드 위치 지정 삭제 삽입
+            if (selected.commonAncestorContainer.innerHTML !== undefined ? style.innerHTML = selected.commonAncestorContainer.innerHTML : style.innerHTML = selected)
+
+
+            selected.deleteContents();
+            selected.insertNode(style);
+        } else { // 해당 Selection에 중복으로 스타일 적용할때
+            var len = parentStyle.length;
+            switch (value) {
+                case 'bold':
+                    parentStyle[len + 1] = "font-weight";
+                    parentStyle['fontWeight'] = value;
+                    break;
+                case 'italic':
+                    parentStyle[len + 1] = "font-style";
+                    parentStyle['fontStyle'] = value;
+                    break;
+                case '1.4em':
+                    parentStyle[len + 1] = "font-size";
+                    parentStyle['fontSize'] = value;
+                    break;
+                case '0.8em':
+                    parentStyle[len + 1] = "font-size";
+                    parentStyle['fontSize'] = value;
+                    break;
+            }
         }
     }
 }

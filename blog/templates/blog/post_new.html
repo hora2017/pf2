@@ -1,18 +1,10 @@
-{% extends 'blog/base.html' %}
-{% load staticfiles %}
-
-{% block content %}
+{% extends 'blog/base.html' %} {% load staticfiles %} {% block content %}
 <h1></h1>
-<div>
-    <ul class="rich">
-        <li id="bold" value="true" onclick="document.execCommand('bold')"><b>B</b></li>
-        <li id="italic"><i>I</i></li>
-        <li id="insertOrderedList">1.</li>
-        <li id="insertUnorderedList">·</li>
-        <li id="fontSize" value="7">big</li>
-        <li id="fontSize" value="1">small</li>
-        <li id="underLine"><u>U</u></li>
-        <li id="strikeThrough"><strike>ST</strike></li>
+<div class="rich">
+    <input class="rich-btn" id="bold" onclick="rich(id)" type="button" value="bold">
+    <input class="rich-btn" id="italic" onclick="rich(id)" type="button" value="italic">
+    <input class="rich-btn" id="1.4em" onclick="rich(id)" type="button" value="big">
+    <input class="rich-btn" id="0.8em" onclick="rich(id)" type="button" value="small">
     </ul>
 </div>
 <div>
@@ -20,13 +12,9 @@
     <div contentEditable="true" class="textDiv" data-text="2. 오늘 하루 안 좋았던 것"></div>
     <div contentEditable="true" class="textDiv" data-text="3. 내일 할 것"></div>
 </div>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {% autoescape off %}
-        {{ form.as_p }}
-        {% endautoescape %}
-        <button type="submit" class="save btn btn-default" onclick="autoSave.publish()">Save</button>
-    </form>
-{% endblock %}
-{% block script %}
+<form method="POST" class="post-form">{% csrf_token %} {% autoescape off %} {{ form.as_p }} {% endautoescape %}
+    <button type="submit" class="save btn btn-default" onclick="autoSave.publish()">Save</button>
+</form>
+{% endblock %} {% block script %}
 <script src="{% static 'js/post_new.js' %}"></script>
-{% endblock script %}
+<script src="{% static 'js/rich_text.js' %}"></script> {% endblock script %}
