@@ -26,6 +26,20 @@ https://stackoverflow.com/questions/20300138/is-it-possible-to-add-placeholder-i
 
 ---
 
-자바스크립트 정규식으로 글에서 바로 태그 입력
+자바스크립트 정규식
 
 http://blog.naver.com/PostView.nhn?blogId=javaking75&logNo=220820365895&categoryNo=22&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+
+--
+
+Selection 과 Range 의 이해
+
+http://ohgyun.com/547
+
+---
+
+addEventListener(), forEach
+
+http://javacpro.tistory.com/37
+
+http://programmingsummaries.tistory.com/357

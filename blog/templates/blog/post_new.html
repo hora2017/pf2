@@ -1,11 +1,13 @@
 {% extends 'blog/base.html' %} {% load staticfiles %} {% block content %}
 <h1></h1>
 <div class="rich">
-    <input class="rich-btn" id="bold" onclick="rich(id)" type="button" value="bold">
-    <input class="rich-btn" id="italic" onclick="rich(id)" type="button" value="italic">
-    <input class="rich-btn" id="1.4em" onclick="rich(id)" type="button" value="big">
-    <input class="rich-btn" id="0.8em" onclick="rich(id)" type="button" value="small">
-    </ul>
+    <input class="rich-btn" id="bold" type="button" value="bold">
+    <input class="rich-btn" id="italic" type="button" value="italic">
+    <input class="rich-btn" id="fontSize" type="button" value="big">
+    <input class="rich-btn" id="underLine" type="button" value="underLine">
+    <input class="rich-btn" id="strikeThrough" type="button" value="strikeThrough">
+    <input class="rich-btn" id="backColor" type="button" value="lavender">
+    <input class="rich-btn" id="backColor" type="button" value="honeydew">
 </div>
 <div>
     <div contentEditable="true" class="textDiv" data-text="1. 오늘 하루 좋았던 것"></div>
@@ -17,4 +19,5 @@
 </form>
 {% endblock %} {% block script %}
 <script src="{% static 'js/post_new.js' %}"></script>
-<script src="{% static 'js/rich_text.js' %}"></script> {% endblock script %}
+<!-- <script src="{% static 'js/rich_text.js' %}"></script> -->
+{% endblock script %}
