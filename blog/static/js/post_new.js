@@ -33,7 +33,7 @@ var modified = {
         var post = []; tagList = []; tags = []; matches = []; regex = /(#)(\w+|[ㄱ-ㅎ가-힣]+)(,|)/gi;
         var divs = document.querySelectorAll('.textDiv');
         for (var i = 0; i < divs.length; i++) {
-            post.push(divs[i].innerHTML);
+            post.push(divs[i].textContent);
         };
 
         for (var i = 0; i < post.length; i++) {
