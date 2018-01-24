@@ -1,52 +1,58 @@
 {% extends 'blog/base.html' %} {% block content %} {% for post in tposts %} {% autoescape off %}
-<div>
-    <!-- <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.created_date }}</a></h1> -->
-    <h1>{{ post.created_date }}</h1>
-    <h3>1. 오늘 가장 안 좋았던 일</h3>
-    <p>{{ post.text1|linebreaksbr }}</p>
-    <h3>2. 오늘 가장 좋았던 일</h3>
-    <p>{{ post.text2|linebreaksbr }}</p>
-    <h3>3. 내일 할 일</h3>
-    <p>{{ post.text3|linebreaksbr }}</p>
+
+<div class="card">
+
+    <div class="card-content">
+        <h1>{{ post.created_date }}</h1>
+        <h3>1. 오늘 가장 안 좋았던 일</h3>
+        <p>{{ post.text1|linebreaksbr }}</p>
+        <h3>2. 오늘 가장 좋았던 일</h3>
+        <p>{{ post.text2|linebreaksbr }}</p>
+        <h3>3. 내일 할 일</h3>
+        <p>{{ post.text3|linebreaksbr }}</p>
+    </div>
+
+    <div class="card-tag">
+        {% for tag in post.tags.all %}
+        <a href="{% url 'tag_post_list' tag.name %}">#{{tag.name}}</a>
+        {% endfor %}
+        <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">+</a>
+    </div>
 </div>
-<div>
-    {% for tag in post.tags.all %}
-    <a href="{% url 'tag_post_list' tag.name %}">#{{tag.name}}</a>
-    {% endfor %}
-</div>
-<hr>
-<a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">+</a>
 {% for comment in post.comments.all %}
-
-<div class="comment">
-
+<div class="card comment">
     <div class="date">{{ comment.created_date }}</div>
-    <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">
-        <span class="glyphicon glyphicon-remove"></span>
-    </a>
+    <div class="remove">
+        <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+    </div>
     <strong>{{ comment.author }}</strong>
-
     <p>{{ comment.text|linebreaks }}</p>
-
 </div>
-{% endfor %}
-{% endautoescape %}
-{% endfor %}
-<div class="pagination">
-    <span class="step-links">
-        {% if tposts.has_previous %}
-        <a href="?page=1">&laquo; first</a>
-        <a href="?page={{ tposts.previous_page_number }}">previous</a>
-        {% endif %}
 
-        <span class="current">
-            Page {{ tposts.number }} of {{ tposts.paginator.num_pages }}.
-        </span>
-
-        {% if tposts.has_next %}
-        <a href="?page={{ tposts.next_page_number }}">next</a>
-        <a href="?page={{ tposts.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+{% endfor %} {% endautoescape %} {% empty %}
+<h3>새로운 글을 작성해보세요!</h3>
+{% endfor %}
 {% endblock %}
+{% block footer %}
+    <footer>
+        <div class="pagination">
+            <span class="step-links">
+                {% if tposts.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ tposts.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ tposts.number }} of {{ tposts.paginator.num_pages }}.
+                </span>
+
+                {% if posts.has_next %}
+                <a href="?page={{ tposts.next_page_number }}">next</a>
+                <a href="?page={{ tposts.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </footer>
+    {% endblock %}

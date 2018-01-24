@@ -1,56 +1,62 @@
+
+/* form p {
+    display: none;
+} */
+
 *{
-    color: #685454;
-}
-.page-header {
-    background-color: #790000;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    font-family: 'Nanum Square';
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
-}
-
-.content {
-    margin-left: 40px;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Lobster', 'Nanum Gothic';
-}
-
-a {
-    color: rgb(190, 93, 93);
-}
-
-.date {
-    color: #afafaf;
-}
-
-.save {
+.remove{
     float: right;
 }
 
-.post-form textarea, .post-form input {
+.card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin-top: 15px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 2% 4%;
+}
+.card-tag {
+    text-align: right;
+}
+.card-tag .btn {
+    margin-left: 10px;
+}
+.card h1 {
+    text-align: center;
+    color: #555
+}
+.card h3 {
+    color: #555
+}
+
+.comment {
+    background: rgb(243, 243, 243);
+}
+
+.col-sm-6 {
+    margin: 100px auto;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+textarea {
+    border-radius: 4px;
+    display: block;
+    resize: vertical;
     width: 100%;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
-}
-
-.post {
-    margin-bottom: 70px;
-}
-
-.post h1 a, .post h1 a:visited {
-    color: #000000;
-}
 
 #autosave {
     display: none;
@@ -59,21 +65,40 @@ a {
 #cssBtn {
     cursor : pointer;
     font-Size :1.5em;
-    color : #fff;
+    color : rgb(86, 187, 255);
 }
-body {
-    background-color: rgb(255, 255, 255);
+.rich{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align:center;
 }
-/* form p {
-    display: none;
-} */
-
+.rich li {
+    display: inline-block;
+    width: 3em;
+    height: 2.5em;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    color: #444;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
+}
+.rich li:active{
+    background-color: #444;
+    color: #fff;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
+}
 [contentEditable=true]:empty:not(:focus):before{
     content:attr(data-text)
 }
 .textDiv{
     height: auto;
     border: 1px solid #ccc;
+    border-radius: 4px;
     padding: 1em;
     margin: 1em 0;
     transition: all 0.2s;
