@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %} {% block content %} {% for post in tposts %}
+{% extends 'blog/base.html' %} {% block content %} {% for post in tposts %} {% autoescape off %}
 <div>
     <!-- <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.created_date }}</a></h1> -->
     <h1>{{ post.created_date }}</h1>
