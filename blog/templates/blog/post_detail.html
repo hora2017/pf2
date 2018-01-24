@@ -4,7 +4,7 @@
 {% block content %}
 {% autoescape off %}
 <div>
-    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.created_date }}</a></h1>
+    <h1>{{ post.created_date }}</h1>
     <h3>1. 오늘 가장 안 좋았던 일</h3>
     <p>{{ post.text1|linebreaksbr }}</p>
     <h3>2. 오늘 가장 좋았던 일</h3>
