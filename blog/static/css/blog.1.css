@@ -2,12 +2,12 @@
     font-family: 'Nanum Square';
     word-break: normal;
     outline: none;
-    color: rgb(182, 182, 182);
+    color: rgb(163, 163, 163);
 }
 body{
     background: #000;
 }
-a {
+a, .icon span {
     color: rgb(255, 224, 47);
 }
 .navbar {
@@ -83,6 +83,7 @@ textarea {
     display: block;
     resize: vertical;
     width: 100%;
+    background: #000;
 }
 
 .save{
@@ -104,7 +105,7 @@ textarea {
 #cssBtn {
     cursor : pointer;
     font-Size :1.5em;
-    color : rgb(86, 187, 255);
+    color: rgb(255, 224, 47);
 }
 .rich{
     list-style: none;
@@ -146,7 +147,6 @@ textarea {
     transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
 }
 .textDiv:focus{
-    background: #ccc;
     font-size: 1em;
     transition: all 0.2s;
     transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
