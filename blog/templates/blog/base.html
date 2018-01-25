@@ -16,26 +16,24 @@
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <div class="header">
-                    <a class="" href="/">세 줄 마음정리</a>
-                </div>
+            <div class="navbar-header" style="margin: 10px auto">
+                <a class="" href="/">세 줄 마음정리</a>
                 {% if user.is_authenticated %}
-                <div>
-                    <p class="top-menu">반가워요 '{{ user.username }}'님
-                        <small>(
-                            <a href="{% url 'logout' %}">Log out</a>)</small>
-                    </p>
+                <p class="top-menu">반가워요 '{{ user.username }}'님
+                    <small>(
+                        <a href="{% url 'logout' %}">Log out</a>)</small>
+                </p>
+                <div class="icon">
+                    <a href="{% url 'post_new' %}">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}">
+                        <span class="glyphicon glyphicon-lock"></span>
+                    </a>
+                    {% endif %}
+                    <span class="glyphicon glyphicon-adjust" id="cssBtn"></span>
                 </div>
-                <a href="{% url 'post_new' %}">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </a>
-                {% else %}
-                <a href="{% url 'login' %}">
-                    <span class="glyphicon glyphicon-lock"></span>
-                </a>
-                {% endif %}
-                <span class="glyphicon glyphicon-adjust" id="cssBtn"></span>
             </div>
         </div>
     </nav>
@@ -48,8 +46,7 @@
             <div class="col-sm-3"></div>
         </div>
     </div>
-    {% block footer %}
-    {% endblock %}
+    {% block footer %} {% endblock %}
     <script src="{% static 'js/base.js' %}"></script> {% block script %} {% endblock script %}
 </body>
 

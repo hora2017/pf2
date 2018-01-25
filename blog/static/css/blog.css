@@ -1,11 +1,35 @@
-
-/* form p {
-    display: none;
-} */
-
 *{
     font-family: 'Nanum Square';
     word-break: normal;
+    outline: none;
+    color: #555;
+}
+
+
+form p, form label {
+    display: none;
+}
+
+p{
+    margin: 15px 0;
+}
+
+.navbar-header {
+    display: block;
+    width: 50%;
+    text-align: center;
+    font-size: 1.1em;
+    float: none;
+}
+
+.icon {
+    position: absolute;
+    display: inline-block;
+    right: 20px;
+    top: 15px;
+}
+.icon span {
+    font-size: 1.5em;
 }
 
 .remove{
@@ -25,12 +49,8 @@
 .card-tag .btn {
     margin-left: 10px;
 }
-.card h1 {
+h1 {
     text-align: center;
-    color: #555
-}
-.card h3 {
-    color: #555
 }
 
 .comment {
@@ -58,6 +78,12 @@ textarea {
     width: 100%;
 }
 
+.save{
+    width: 20%;
+    margin: 30px auto;
+    display: block;
+}
+
 
 #autosave {
     display: none;
@@ -75,9 +101,11 @@ textarea {
     width: 100%;
     text-align:center;
 }
-.rich li {
+.rich input {
     display: inline-block;
-    width: 3em;
+    border: 0;
+    text-align: center;
+    width: 23%;
     height: 2.5em;
     margin: 0 auto;
     text-align: center;
@@ -87,7 +115,7 @@ textarea {
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
 }
-.rich li:active{
+.rich input:active{
     background-color: #444;
     color: #fff;
     transition: all 0.05s;
@@ -106,8 +134,7 @@ textarea {
     transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
 }
 .textDiv:focus{
-    background: #ffffff;
-    color: #111;
+    background: #ccc;
     font-size: 1em;
     transition: all 0.2s;
     transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)

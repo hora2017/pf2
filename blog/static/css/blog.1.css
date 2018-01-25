@@ -1,56 +1,101 @@
-* {
-    color: #eee;
+*{
+    font-family: 'Nanum Square';
+    word-break: normal;
+    outline: none;
+    color: rgb(182, 182, 182);
 }
-.page-header {
-    background-color: #666;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+body{
+    background: #000;
 }
-
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: rgb(255, 215, 86);
-    font-size: 36pt;
-    text-decoration: none;
-}
-
-.content {
-    margin-left: 40px;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Lobster', 'Nanum Gothic';
-}
-
 a {
-    color: rgb(255, 215, 86);
+    color: rgb(255, 224, 47);
+}
+.navbar {
+    background: #111;
 }
 
-.date {
-    color: rgb(255, 215, 86);
+form p, form label {
+    display: none;
 }
 
-.save {
+p{
+    margin: 15px 0;
+}
+
+.navbar-header {
+    display: block;
+    width: 50%;
+    text-align: center;
+    font-size: 1.1em;
+    float: none;
+}
+
+.icon {
+    position: absolute;
+    display: inline-block;
+    right: 20px;
+    top: 15px;
+}
+.icon span {
+    font-size: 1.5em;
+}
+
+.remove{
     float: right;
 }
 
-.post-form textarea, .post-form input {
+.card {
+    margin-top: 15px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 2% 4%;
+}
+.card-tag {
+    text-align: right;
+}
+.card-tag .btn {
+    margin-left: 10px;
+}
+h1 {
+    text-align: center;
+}
+
+.comment {
+    background: #111;
+}
+
+.col-sm-6 {
+    margin: 100px auto;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #111;
+    text-align: center;
+}
+
+textarea {
+    border-radius: 4px;
+    display: block;
+    resize: vertical;
     width: 100%;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: rgb(86, 187, 255);
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+.save{
+    width: 20%;
+    margin: 30px auto;
+    display: block;
 }
 
-.post {
-    margin-bottom: 70px;
+.btn{
+    background: #222;
+    border: 1px solid #111;
 }
 
-.post h1 a, .post h1 a:visited {
-    color: rgb(29, 50, 168);
-}
 
 #autosave {
     display: none;
@@ -61,13 +106,6 @@ a {
     font-Size :1.5em;
     color : rgb(86, 187, 255);
 }
-
-body {
-    background-color: #444;
-}
-form p {
-    display: none;
-}
 .rich{
     list-style: none;
     margin: 0;
@@ -75,9 +113,11 @@ form p {
     width: 100%;
     text-align:center;
 }
-.rich li {
+.rich input {
     display: inline-block;
-    width: 3em;
+    border: 0;
+    text-align: center;
+    width: 23%;
     height: 2.5em;
     margin: 0 auto;
     text-align: center;
@@ -87,7 +127,7 @@ form p {
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
 }
-.rich li:active{
+.rich input:active{
     background-color: #444;
     color: #fff;
     transition: all 0.05s;
@@ -106,9 +146,8 @@ form p {
     transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
 }
 .textDiv:focus{
-    background: #ffffff;
-    color: #111;
-    font-size: 1.3em;
+    background: #ccc;
+    font-size: 1em;
     transition: all 0.2s;
     transition-timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19)
 }

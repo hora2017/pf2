@@ -6,10 +6,7 @@ var modified = {
         if (day.toString().length < 2) { day = '0' + day; }
         if (date.getHours() > 12) { time = (date.getHours() - 12) }
         else { time = date.getHours() }
-        title.innerHTML = date.getFullYear() + '년 ' + date.getMonth() + 1 + '월 ' + day + '일 | ' + time + '시 ' + date.getMinutes() + '분 ' + date.getSeconds() + '초';
-    },
-    autoFocus: function () { // 첫 질문칸에 자동으로 포커스주기
-        var textarea = document.querySelector('#id_text1').setAttribute('autofocus', 'autofocus');
+        title.innerHTML = date.getFullYear() + '년 ' + date.getMonth() + 1 + '월 ' + day + '일 <br>' + time + '시 ' + date.getMinutes() + '분 ' + date.getSeconds() + '초';
     },
     divToArea: function () { // div의 글을 textarea로 동기화
         var textarea = document.getElementsByTagName('textarea');
@@ -121,7 +118,6 @@ function click(id, value) {
 
 
 modified.titleDate();
-modified.autoFocus();
 autoSave.restore();
 autoSave.delete();
 setInterval(function () { modified.titleDate() }, 1000);
