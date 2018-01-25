@@ -95,6 +95,7 @@ var autoSave = {
         }
     },
     publish: function () { // 글 작성 완료시 저장소의 글 삭제
+        var len = autoSave.getEditer().length;
         for (var i = 0; i < len; i++) {
             var localKey = localStorage.key(i);
             if (localKey !== 'theme') { localStorage.removeItem(localKey); };

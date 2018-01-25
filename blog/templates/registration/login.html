@@ -3,7 +3,7 @@
 {% if form.errors %}
     <p>다시 로그인 하세요</p>
 {% endif %}
-
+<span>id: user | passward: q12341234</span>
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
     <table>
