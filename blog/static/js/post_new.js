@@ -1,6 +1,6 @@
 var modified = {
     titleDate: function () { // 실시간 제목 반영
-        var title = document.getElementsByTagName('h1')[1];
+        var title = document.getElementsByTagName('h1')[0];
         var date = new Date();
         var time, day = date.getDate();
         if (day.toString().length < 2) { day = '0' + day; }
